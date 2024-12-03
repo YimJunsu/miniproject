@@ -10,9 +10,9 @@ create table user(
     phone_no int not null
 );
 
-create table Categori(
-	categori_no int auto_increment primary key,
-    categori_name varchar(30) not null unique
+create table Category(
+	category_no int auto_increment primary key,
+    category_name varchar(30) not null unique
 );
 
 create table product(
@@ -22,8 +22,8 @@ create table product(
     product_time datetime default now(),
     product_board varchar(100),
     role enum('판매중', '판매완료') not null,
-    categori_no_fk int,
-    foreign key(categori_no_fk) references categori(categori_no)
+    category_no_fk int,
+    foreign key(category_no_fk) references category(category_no)
 );
 
 create table porder(

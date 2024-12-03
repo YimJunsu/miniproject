@@ -25,7 +25,7 @@ public class shopDto {
             this.usernum = usernum; this.id = id; this.pwd = pwd; this.phnum = phnum;
         }
 
-        // 회원가입 getter,setter
+        //getter,setter
         public int getUsernum() {return usernum;}
         public String getId() {return id;}
         public String getPwd() {return pwd;}
