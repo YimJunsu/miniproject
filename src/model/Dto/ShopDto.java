@@ -44,4 +44,5 @@ public class ShopDto {
                     ", phnum=" + phnum +
                     '}';
         }
+
     }

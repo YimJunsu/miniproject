@@ -42,6 +42,7 @@ public class ShopView {
                 break;
             }
         }
+
     }
 
     public void shopRegister() {
