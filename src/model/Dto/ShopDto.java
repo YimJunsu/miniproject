@@ -3,9 +3,9 @@ package model.Dto;
 public class ShopDto {
         // 회원가입
         private int usernum;
-        private String id;
-        private int pwd;
-        private int phnum;
+        private static String id;
+        private static int pwd;
+        private static int phnum;
         // 카테고리
         private int catenum;
         private String catename;
@@ -27,9 +27,9 @@ public class ShopDto {
 
         //getter,setter
         public int getUsernum() {return usernum;}
-        public String getId() {return id;}
-        public int getPwd() {return pwd;}
-        public int getPhnum() {return phnum;}
+        public static String getId() {return id;}
+        public static int getPwd() {return pwd;}
+        public static int getPhnum() {return phnum;}
         public void setId(String id) {this.id = id;}
         public void setPwd(int pwd) {this.pwd = pwd;}
         public void setUsernum(int usernum) {this.usernum = usernum;}

@@ -1,6 +1,7 @@
 package controller;
 
 public class ShopController {
+
     private static ShopController shopController = new ShopController();
     private ShopController(){}
     public static ShopController getInstance(){

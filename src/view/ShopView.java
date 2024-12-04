@@ -26,7 +26,18 @@ public class ShopView {
                 shopRegister();
             } else if (choose == 2) {
                 shopLogin();
-                System.out.println("[1. 제품 보기]  [2.제품 등록]");
+                while (true) {
+                    System.out.println("[1.제품보기]  [2.제품등록]  [3.로그아웃]");
+                    choose = scan.nextInt();
+                    if(choose==1) {
+                        System.out.println("------------------------");
+                    }else if (choose==2) {
+                        System.out.println("제품등록중..");
+                    } else if (choose==3) {
+                        System.out.println("로그아웃중..");
+                        break;
+                    }
+                }
             } else if (choose == 3) {
                 break;
             }
