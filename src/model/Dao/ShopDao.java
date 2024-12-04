@@ -32,9 +32,9 @@ public class ShopDao {
         try {
             String sql = "insert into user (id, pwd, phone_no) values (?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, ShopDto.getId());
-            ps.setInt(2, ShopDto.getPwd());
-            ps.setInt(3, ShopDto.getPhnum());
+            ps.setString(1, shopDto.getId());
+            ps.setInt(2, shopDto.getPwd());
+            ps.setInt(3, shopDto.getPhnum());
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
