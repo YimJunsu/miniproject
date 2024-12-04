@@ -21,7 +21,7 @@ public class ShopDto {
         private String content;
 
         // 회원가입 생성자
-        public ShopDto(int usernum, String id, int pwd, int phnum) {
+        public ShopDto(String id, int pwd, int phnum) {
             this.usernum = usernum; this.id = id; this.pwd = pwd; this.phnum = phnum;
         }
 
@@ -44,5 +44,4 @@ public class ShopDto {
                     ", phnum=" + phnum +
                     '}';
         }
-
     }

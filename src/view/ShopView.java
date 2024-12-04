@@ -19,6 +19,7 @@ public class ShopView {
 
     //회원가입 함수
     public void mainPage() {
+        System.out.println("Shop 개인간 거래 프로그램");
         while (true) {
             System.out.print("[1. 회원가입]   [2. 로그인]   [3. 종료하기] : ");
             int choose = scan.nextInt();
@@ -42,7 +43,6 @@ public class ShopView {
                 break;
             }
         }
-
     }
 
     public void shopRegister() {
