@@ -1,4 +1,4 @@
-package model.Dao;  // 우현서 코드 작성중
+package model.Dao;
 
 import model.Dto.ShopDto;
 import java.sql.Connection;
@@ -8,6 +8,9 @@ import java.sql.SQLException;
 
 public class ShopDao {
     private Connection conn;
+
+    private static final ShopDao shopDao = new ShopDao();
+
     private ShopDao(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -19,6 +22,10 @@ public class ShopDao {
         }catch( SQLException e ){
             e.getMessage(); System.out.println("[ BoardDB Connection fail ]");
         }
+    }
+
+    public static ShopDao getInstance(){
+        return shopDao;
     }
 
     public boolean register(ShopDto shopDto) {
