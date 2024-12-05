@@ -51,7 +51,7 @@ public class ShopView {
         String id = scan.nextLine();
         System.out.print("[비밀번호(숫자)] : ");
         int pwd = scan.nextInt();
-        System.out.print("[휴대폰 번호(-없이)] : ");
+        System.out.print("[휴대폰 번호(-없이작성)] : ");
         int phnum = scan.nextInt();
         boolean result = ShopController.getInstance().shopRegister(id, pwd, phnum);
         if (result) {
