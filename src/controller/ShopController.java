@@ -12,10 +12,12 @@ public class ShopController {
         return shopController;
     }
 
+    //회원가입 등록 제어 함수
     public boolean shopRegister(String id, int pwd, int phnum) {
         ShopDto shopDto = new ShopDto(id, pwd, phnum);
         return ShopDao.getInstance().register(shopDto);
     }
+
     public boolean shopLogin(String id, int pwd){
         return true;
     }
