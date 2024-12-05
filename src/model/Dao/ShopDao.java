@@ -39,7 +39,7 @@ public class ShopDao {
             return true;
         } catch (SQLException e) {
             e.getMessage();
-            System.out.println("[회원가입 실패]");
+            System.out.println("[아이디가 중복되었습니다]");
         }
         return false;
     }

@@ -23,25 +23,24 @@ public class ShopView {
         while (true) {
             System.out.print("[1. 회원가입]   [2. 로그인]   [3. 종료하기] : ");
             int choose = scan.nextInt();
-            if (choose == 1) {
-                shopRegister();
-            } else if (choose == 2) {
-                shopLogin();
-                while (true) {
-                    System.out.println("[1.제품보기]  [2.제품등록]  [3.로그아웃]");
-                    choose = scan.nextInt();
-                    if(choose==1) {
-                        System.out.println("------------------------");
-                    }else if (choose==2) {
-                        System.out.println("제품등록중..");
-                    } else if (choose==3) {
-                        System.out.println("로그아웃중..");
+            switch (choose){
+                case 1: shopRegister();continue;
+                case 2: shopLogin();
+                    while (true) {
+                        System.out.println("[1.제품보기]  [2.제품등록]  [3.로그아웃]");
+                        choose = scan.nextInt();
+                        switch (choose){
+                            case 1: System.out.println("제품목록"); continue;
+                            case 2: System.out.println("제품 등록중.."); continue;
+                            case 3: System.out.println("로그아웃중..");break;
+                        }
                         break;
                     }
-                }
-            } else if (choose == 3) {
-                break;
+                    continue;
+                case 3: break;
             }
+            break;
+
         }
     }
 
