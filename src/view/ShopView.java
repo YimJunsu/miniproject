@@ -78,4 +78,6 @@ public class ShopView {
             return false;
         }
     }
+    //void 카테고리 함수
+
 }

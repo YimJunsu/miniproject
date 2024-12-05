@@ -58,4 +58,6 @@ public class ShopDao {
             return false;
         }
     }
+
+    //카테고라 함수 void select * from category
 }

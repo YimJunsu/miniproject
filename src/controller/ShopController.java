@@ -23,4 +23,6 @@ public class ShopController {
         ShopDto shopDto = new ShopDto(id, pwd);
         return ShopDao.getInstance().login(shopDto);
     }
+
+    //카테고리 보가 제어 함수
 }

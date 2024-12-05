@@ -28,6 +28,7 @@ public class ShopDto {
         public ShopDto(String id, int pwd){
                 this.id = id; this.pwd = pwd;
         }
+        //카테고리 생성자
 
         //getter,setter
         public int getUsernum() {return usernum;}
