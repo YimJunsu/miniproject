@@ -17,7 +17,7 @@ public class ShopView {
         return shopView;
     }
 
-    //회원가입 함수
+    //메인페이지 시작
     public void mainPage() {
         System.out.println("Shop 개인간 거래 프로그램");
         while (true) {
@@ -27,7 +27,7 @@ public class ShopView {
                 shopRegister();
             } else if (choose == 2) {
                 shopLogin();
-                while (true) {
+                while (true) { // 로그인 완료 후 제품에 관해서 시작코드
                     System.out.println("[1.제품보기]  [2.제품등록]  [3.로그아웃]");
                     choose = scan.nextInt();
                     if(choose==1) {
@@ -45,13 +45,13 @@ public class ShopView {
         }
     }
 
-    public void shopRegister() {
+    public void shopRegister() {//회원가입 코드
         scan.nextLine();
         System.out.print("회원가입 시작\n[아이디] : ");
         String id = scan.nextLine();
         System.out.print("[비밀번호(숫자)] : ");
         int pwd = scan.nextInt();
-        System.out.print("[휴대폰 번호] : ");
+        System.out.print("[휴대폰 번호(-없이)] : ");
         int phnum = scan.nextInt();
         boolean result = ShopController.getInstance().shopRegister(id, pwd, phnum);
         if (result) {
@@ -61,12 +61,11 @@ public class ShopView {
         }
     }
 
-    public void shopLogin() {
+    public void shopLogin() { //로그인
         System.out.print("로그인 시작\n[아이디]:");
         String id = scan.next();
         System.out.print("[비밀번호(숫자)] : ");
         int pwd = scan.nextInt();
-
         boolean result = ShopController.getInstance().shopLogin(id, pwd);
         if (result) {
             System.out.println("[로그인 성공하였습니다.]");
