@@ -20,9 +20,13 @@ public class ShopDto {
         private String seller;
         private String content;
 
-        // 회원가입 생성자
+        // 회원가입 생성자(아이디, 비밀번호, 연락처)
         public ShopDto(String id, int pwd, int phnum) {
-            this.usernum = usernum; this.id = id; this.pwd = pwd; this.phnum = phnum;
+            this.id = id; this.pwd = pwd; this.phnum = phnum;
+        }
+        //로그인 생성자(아이디, 비밀번호)
+        public ShopDto(String id, int pwd){
+                this.id = id; this.pwd = pwd;
         }
 
         //getter,setter

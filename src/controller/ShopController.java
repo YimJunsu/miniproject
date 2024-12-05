@@ -6,7 +6,7 @@ import model.Dto.ShopDto;
 public class ShopController {
 
     //싱글톤
-    private static ShopController shopController = new ShopController();
+    private static final ShopController shopController = new ShopController();
     private ShopController(){}
     public static ShopController getInstance(){
         return shopController;
@@ -18,8 +18,9 @@ public class ShopController {
         return ShopDao.getInstance().register(shopDto);
     }
 
+    //로그인 등록 제어 함수
     public boolean shopLogin(String id, int pwd){
-
-        return true;
+        ShopDto shopDto = new ShopDto(id, pwd);
+        return ShopDao.getInstance().login(shopDto);
     }
 }

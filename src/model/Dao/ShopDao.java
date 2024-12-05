@@ -1,10 +1,8 @@
 package model.Dao;
 
 import model.Dto.ShopDto;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
+import java.sql.*;
 
 public class ShopDao {
     private Connection conn;
@@ -38,9 +36,26 @@ public class ShopDao {
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
-            e.getMessage();
-            System.out.println("[아이디가 중복되었습니다]");
+            System.err.println("Error: " + e.getMessage());
+            return false;
         }
-        return false;
+    }
+
+    public boolean login(ShopDto shopDto) {
+        String sql = "select * from user where id = ? and pwd = ?";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, shopDto.getId());
+            ps.setInt(2, shopDto.getPwd());
+            ResultSet rs = ps.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                return true;
+            } else {
+                System.out.println("[아이디 또는 비밀번호가 잘못되었습니다]");
+                return false;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+            return false;
+        }
     }
 }
