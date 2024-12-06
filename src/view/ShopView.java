@@ -47,7 +47,6 @@ public class ShopView {
             }
         }
     }
-
     public void shopRegister() {//회원가입 코드
         System.out.print("회원가입 시작\n[아이디] : ");
         String id = scan.next();
