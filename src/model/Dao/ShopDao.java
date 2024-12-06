@@ -26,18 +26,38 @@ public class ShopDao {
         return shopDao;
     }
 
-    public boolean register(ShopDto shopDto) {
+    public int register(ShopDto shopDto) {
         try {
             String sql = "insert into user (id, pwd, phone_no) values (?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, shopDto.getId());
-            ps.setInt(2, shopDto.getPwd());
-            ps.setInt(3, shopDto.getPhnum());
-            ps.executeUpdate();
-            return true;
+            try {
+                ps.setString(1, shopDto.getId());
+                int password = Integer.parseInt(shopDto.getPwd());
+                ps.setInt(2, password);
+                ps.setInt(3, shopDto.getPhnum());
+                ps.executeUpdate();
+            } catch (NumberFormatException e){
+                System.err.println("Error : " + e.getMessage());
+                return 4; //비밀번호 타입 오류
+            }
+            return 6;
         } catch (SQLException e) {
-            System.err.println("Error: " + e.getMessage());
-            return false;
+            String errorMessage = e.getMessage();
+            if (e.getSQLState().equals("23000") && e.getErrorCode() == 1062){
+                if (errorMessage.contains("id")){
+                    System.err.println("Error : " + errorMessage);
+                    return 1; //아이디 중복
+                } else if (errorMessage.contains("phone_no")) {
+                    System.err.println("Error : " + errorMessage);
+                    return 2; //연락처 중복
+                }
+            } else if (e.getSQLState().equals("22001")) {
+                System.err.println("Error : " + errorMessage);
+                return 3; //id길이 초과
+            } else {
+                System.err.println("Error" + errorMessage);
+            }
+            return 5;  //기타 오류
         }
     }
 
@@ -45,9 +65,10 @@ public class ShopDao {
         String sql = "select * from user where id = ? and pwd = ?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, shopDto.getId());
-            ps.setInt(2, shopDto.getPwd());
+            int password = Integer.parseInt(shopDto.getPwd());
+            ps.setInt(2, password);
             ResultSet rs = ps.executeQuery();
-            if (rs.next() && rs.getInt(1) > 0) {
+            if (rs.next()) {
                 return true;
             } else {
                 System.out.println("[아이디 또는 비밀번호가 잘못되었습니다]");
