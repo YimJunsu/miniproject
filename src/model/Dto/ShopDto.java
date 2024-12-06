@@ -30,6 +30,11 @@ public class ShopDto {
         }
         //카테고리 생성자
 
+
+        public ShopDto(String catename) {
+                this.catename = catename;
+        }
+
         //getter,setter
         public int getUsernum() {return usernum;}
         public String getId() {return id;}
@@ -40,13 +45,29 @@ public class ShopDto {
         public void setUsernum(int usernum) {this.usernum = usernum;}
         public void setPhnum(int phnum) {this.phnum = phnum;}
 
-        @Override
-        public String toString() {
-            return "shopDto{" +
-                    "usernum=" + usernum +
-                    ", id='" + id + '\'' +
-                    ", pwd='" + pwd + '\'' +
-                    ", phnum=" + phnum +
-                    '}';
+
+        public String getCatename() {
+                return catename;
         }
-    }
+
+        public void setCatename(String catename) {
+                this.catename = catename;
+        }
+
+        public int getCatenum() {
+                return catenum;
+        }
+
+        public void setCatenum(int catenum) {
+                this.catenum = catenum;
+        }
+
+        @Override public String toString() {
+    return "ShopDto{" +
+            "phnum=" + phnum +
+            ", pwd=" + pwd +
+            ", id='" + id + '\'' +
+            ", usernum=" + usernum +
+            '}';
+}}
+

@@ -2,6 +2,9 @@ package controller;
 
 import model.Dao.ShopDao;
 import model.Dto.ShopDto;
+import view.ShopView;
+
+import java.util.List;
 
 public class ShopController {
 
@@ -25,4 +28,9 @@ public class ShopController {
     }
 
     //카테고리 보가 제어 함수
+
+    public boolean categories (String catename) {
+        boolean result= ShopDao.getInstance().categories(catename);
+        return result;
+    }
 }
