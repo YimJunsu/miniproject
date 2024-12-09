@@ -37,6 +37,7 @@ public class ShopView {
                             switch (choose) {
                                 case 1:
                                     System.out.println("제품목록");
+                                    shopCategories();
                                     continue;
                                 case 2:
                                     System.out.println("제품 등록중..");
@@ -93,7 +94,7 @@ public class ShopView {
     //void 카테고리 함수 1.의류 2. 전자기기 3. 미용 4.기타 중고물품
     void shopCategories() {
         System.out.println("1.의류 2.전자기기 3.미용 4.기타중고물품");
-        String catename = scan.next();
+        String catename =scan.next();
         boolean result = ShopController.getInstance().categories(catename);
         if (result) {
             System.out.println(catename+"카테고리가 선택 되었습니다");
@@ -102,5 +103,21 @@ public class ShopView {
             System.out.println("없는 카테고리 입니다");
 
         }
+    }
+
+    //상품추가함수
+    void productAdd(){
+// 제품명, 제품가격, 제품상태 입력받기
+        System.out.print("판매제품 입력:"); String prname=scan.next();
+        System.out.print("판매 가격 입력:"); int price=scan.nextInt();
+        System.out.print("판매 상태 입력:"); String state=scan.next();
+        ShopDto productAddDto=new ShopDto(prname,price,state);
+        boolean result=ShopController.getInstance().productAdd(productAddDto);
+        if (result){
+            System.out.println("제품 추가 성공");
+        }else {
+            System.out.println("제품 추가 실패");
+        }
+
     }
 }

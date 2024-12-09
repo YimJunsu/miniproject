@@ -35,6 +35,15 @@ public class ShopDto {
                 this.catename = catename;
         }
 
+        // 상품 추가 생성자
+
+
+        public ShopDto(String prname, int price, String state) {
+                this.prname = prname;
+                this.price = price;
+                this.state = state;
+        }
+
         //getter,setter
         public int getUsernum() {return usernum;}
         public String getId() {return id;}

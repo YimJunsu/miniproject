@@ -33,4 +33,10 @@ public class ShopController {
         boolean result= ShopDao.getInstance().categories(catename);
         return result;
     }
+
+    //상품추가 제어함수
+    public boolean productAdd(ShopDto productAddDto){
+boolean result=ShopDao.getInstance().productAdd(productAddDto);
+ return result;
+    }
 }
