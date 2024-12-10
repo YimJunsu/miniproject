@@ -3,6 +3,8 @@ package controller;
 import model.Dao.ShopDao;
 import model.Dto.ShopDto;
 
+import java.util.ArrayList;
+
 public class ShopController {
 
     //싱글톤
@@ -30,5 +32,9 @@ public class ShopController {
         return ShopDao.getInstance().login(shopDto);
     }
 
-    //카테고리 보가 제어 함수
+    //카테고리 보기 제어 함수
+    public ArrayList<ShopDto> categoris(){
+        ArrayList<ShopDto> result = ShopDao.getInstance().categories();
+        return result;
+    }
 }

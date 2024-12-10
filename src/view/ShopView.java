@@ -3,7 +3,6 @@ package view;
 import controller.ShopController;
 import model.Dto.ShopDto;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class ShopView {
@@ -25,35 +24,26 @@ public class ShopView {
         while (true) {
             System.out.print("[1. 회원가입]   [2. 로그인]   [3. 종료하기] : ");
             int choose = scan.nextInt();
-            switch (choose) {
-                case 1:
-                    shopRegister();
-                    continue;
+            switch (choose){
+                case 1: shopRegister();continue;
                 case 2:
-                    if (shopLogin()) {
+                    if (shopLogin()){
                         while (true) {
                             System.out.print("[1.제품보기]  [2.제품등록]  [3.로그아웃] : ");
                             choose = scan.nextInt();
-                            switch (choose) {
-                                case 1:
-                                    System.out.println("제품목록");
-                                    continue;
-                                case 2:
-                                    System.out.println("제품 등록중..");
-                                    continue;
-                                case 3:
-                                    System.out.println("로그아웃중..");
+                            switch (choose){
+                                case 1: System.out.println("제품목록"); categoris(); continue; //현재 문제 : 카테고리가 순서대로 출력이 안됨
+                                case 2: System.out.println("제품 등록중.."); continue;
+                                case 3: System.out.println("로그아웃중..");
                             }
-                            if (choose == 3) {
+                            if (choose == 3){
                                 break;
                             }
                         }
-                    }
-                    continue;
-                case 3:
-                    System.out.println("종료중..");
+                    }continue;
+                case 3: System.out.println("종료중..");
             }
-            if (choose == 3) {
+            if (choose==3){
                 break;
             }
         }
@@ -91,18 +81,13 @@ public class ShopView {
             return false;
         }
     }
-
-    //void 카테고리 함수 1.의류 2. 전자기기 3. 미용 4.기타 중고물품
-    void shopCategories() {
-        System.out.println("1.의류 2.전자기기 3.미용 4.기타중고물품");
-        String catename = scan.next();
-        boolean result = ShopController.getInstance().categories(catename);
-        if (result) {
-            System.out.println(catename+"카테고리가 선택 되었습니다");
-
-        } else {
-            System.out.println("없는 카테고리 입니다");
-
+    //void 카테고리 함수
+    public void categoris(){
+        ArrayList<ShopDto> result = ShopController.getInstance().categoris();
+        System.out.println("카테고리 분류");
+        for (int i = 0 ; i < result.size() ; i++) {
+            System.out.println( i + 1 + " : " + result.get(i).getCatename()); //현재 문제 : 카테고리가 순서대로 출력이 안됨
         }
     }
+
 }

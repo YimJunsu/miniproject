@@ -3,6 +3,7 @@ package model.Dao;
 import model.Dto.ShopDto;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class ShopDao {
     private Connection conn;
@@ -80,5 +81,21 @@ public class ShopDao {
         }
     }
 
-    //카테고라 함수 void select * from category
+    //카테고리 함수
+    public ArrayList<ShopDto> categories(){
+        ArrayList<ShopDto> list = new ArrayList<>();
+        try {
+            String sql = "select * from category";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                String cateName = rs.getString("category_name");
+
+                ShopDto shopDto = new ShopDto(cateName);
+                list.add(shopDto);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }return list;
+    }
 }
