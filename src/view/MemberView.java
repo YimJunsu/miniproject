@@ -1,8 +1,22 @@
 package view;
 
-import controller.ShopController;
+import controller.MemberController;
+import controller.ProductController;
+
+import java.util.Scanner;
 
 public class MemberView {
+
+    // [강사] MemberView 싱글톤
+    private static final MemberView memberView = new MemberView();
+    private MemberView() { }
+    public static MemberView getInstance() {
+        return memberView;
+    }
+    // [강사] 입력 객체
+    Scanner scan = new Scanner(System.in);
+
+
     //회원가입 함수
     public void shopRegister() {//회원가입 코드
         System.out.print("회원가입 시작\n[아이디] : ");
@@ -11,7 +25,8 @@ public class MemberView {
         String pwd = scan.next();
         System.out.print("[휴대폰 번호(-없이작성)] : ");
         int phnum = scan.nextInt();
-        int result = ShopController.getInstance().shopRegister(id, pwd, phnum);
+        //[강사]//
+        int result = MemberController.getInstance().shopRegister(id, pwd, phnum);
         switch (result){
             case 1: System.out.println("아이디가 중복되었습니다"); break;
             case 2: System.out.println("연락처가 중복되었습니다"); break;
@@ -27,8 +42,8 @@ public class MemberView {
         String id = scan.next();
         System.out.print("[비밀번호(숫자)] : ");
         String pwd = scan.next();
-
-        boolean result = ShopController.getInstance().shopLogin(id, pwd);
+        //[강사]//
+        boolean result = MemberController.getInstance().shopLogin(id, pwd);
         if (result) {
             System.out.println("[로그인 성공하였습니다.]");
             return true;
