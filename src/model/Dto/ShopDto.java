@@ -20,16 +20,16 @@ public class ShopDto {
         private String seller;
         private String content;
 
-        // 회원가입 생성자(아이디, 비밀번호, 연락처)
-        public ShopDto(String id, int pwd, int phnum) {
-            this.id = id; this.pwd = pwd; this.phnum = phnum;
+        public ShopDto(String id, String pwd, int phnum) {
+                this.id = id;
+                this.pwd = pwd;
+                this.phnum = phnum;
         }
-        //로그인 생성자(아이디, 비밀번호)
-        public ShopDto(String id, int pwd){
-                this.id = id; this.pwd = pwd;
-        }
-        //카테고리 생성자
 
+        public ShopDto(String id, String pwd) {
+                this.id = id;
+                this.pwd = pwd;
+        }
 
         public ShopDto(String catename) {
                 this.catename = catename;
@@ -55,6 +55,30 @@ public class ShopDto {
         public void setPhnum(int phnum) {this.phnum = phnum;}
 
 
+        public String getId() {
+                return id;
+        }
+
+        public void setId(String id) {
+                this.id = id;
+        }
+
+        public String getPwd() {
+                return pwd;
+        }
+
+        public void setPwd(String pwd) {
+                this.pwd = pwd;
+        }
+
+        public int getPhnum() {
+                return phnum;
+        }
+
+        public void setPhnum(int phnum) {
+                this.phnum = phnum;
+        }
+
         public String getCatename() {
                 return catename;
         }
@@ -63,20 +87,67 @@ public class ShopDto {
                 this.catename = catename;
         }
 
-        public int getCatenum() {
-                return catenum;
+        public String getPrname() {
+                return prname;
         }
 
-        public void setCatenum(int catenum) {
-                this.catenum = catenum;
+        public void setPrname(String prname) {
+                this.prname = prname;
         }
 
-        @Override public String toString() {
-    return "ShopDto{" +
-            "phnum=" + phnum +
-            ", pwd=" + pwd +
-            ", id='" + id + '\'' +
-            ", usernum=" + usernum +
-            '}';
-}}
+        public int getPrice() {
+                return price;
+        }
 
+        public void setPrice(int price) {
+                this.price = price;
+        }
+
+        public String getState() {
+                return state;
+        }
+
+        public void setState(String state) {
+                this.state = state;
+        }
+
+        public String getBuyer() {
+                return buyer;
+        }
+
+        public void setBuyer(String buyer) {
+                this.buyer = buyer;
+        }
+
+        public String getSeller() {
+                return seller;
+        }
+
+        public void setSeller(String seller) {
+                this.seller = seller;
+        }
+
+        public String getContent() {
+                return content;
+        }
+
+        public void setContent(String content) {
+                this.content = content;
+        }
+
+        @Override
+        public String toString() {
+                return "ShopDto{" +
+                        "id='" + id + '\'' +
+                        ", pwd='" + pwd + '\'' +
+                        ", phnum=" + phnum +
+                        ", catename='" + catename + '\'' +
+                        ", prname='" + prname + '\'' +
+                        ", price=" + price +
+                        ", state='" + state + '\'' +
+                        ", buyer='" + buyer + '\'' +
+                        ", seller='" + seller + '\'' +
+                        ", content='" + content + '\'' +
+                        '}';
+        }
+}

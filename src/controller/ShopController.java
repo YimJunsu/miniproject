@@ -2,9 +2,8 @@ package controller;
 
 import model.Dao.ShopDao;
 import model.Dto.ShopDto;
-import view.ShopView;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class ShopController {
 
@@ -16,21 +15,26 @@ public class ShopController {
     }
 
     //회원가입 등록 제어 함수
-    public boolean shopRegister(String id, int pwd, int phnum) {
+    public int shopRegister(String id, String pwd, int phnum) {
         ShopDto shopDto = new ShopDto(id, pwd, phnum);
+        // 1. 중복검사를 해주는 select dao 처리
+        // 2. 문자열길이 <-- 자바처리
+        // 3. 비밀번호 타입 확인 <--- 자바처리
+        // -----> 위코드가 모두 통과
+        // 4. 등록처리
+        // 5. DB오류
         return ShopDao.getInstance().register(shopDto);
     }
 
     //로그인 등록 제어 함수
-    public boolean shopLogin(String id, int pwd){
+    public boolean shopLogin(String id, String pwd){
         ShopDto shopDto = new ShopDto(id, pwd);
         return ShopDao.getInstance().login(shopDto);
     }
 
-    //카테고리 보가 제어 함수
-
-    public boolean categories (String catename) {
-        boolean result= ShopDao.getInstance().categories(catename);
+    //카테고리 보기 제어 함수
+    public ArrayList<ShopDto> categoris(){
+        ArrayList<ShopDto> result = ShopDao.getInstance().categories();
         return result;
     }
 
