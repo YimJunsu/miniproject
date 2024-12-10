@@ -1,7 +1,9 @@
 package view;
 
 import controller.ShopController;
+import model.Dto.ShopDto;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ShopView {
@@ -31,7 +33,7 @@ public class ShopView {
                             System.out.print("[1.제품보기]  [2.제품등록]  [3.로그아웃] : ");
                             choose = scan.nextInt();
                             switch (choose){
-                                case 1: System.out.println("제품목록"); continue;
+                                case 1: System.out.println("제품목록"); categoris(); continue; //현재 문제 : 카테고리가 순서대로 출력이 안됨
                                 case 2: System.out.println("제품 등록중.."); continue;
                                 case 3: System.out.println("로그아웃중..");
                             }
@@ -81,5 +83,12 @@ public class ShopView {
         }
     }
     //void 카테고리 함수
+    public void categoris(){
+        ArrayList<ShopDto> result = ShopController.getInstance().categoris();
+        System.out.println("카테고리 분류");
+        for (int i = 0 ; i < result.size() ; i++) {
+            System.out.println( i + 1 + " : " + result.get(i).getCatename()); //현재 문제 : 카테고리가 순서대로 출력이 안됨
+        }
+    }
 
 }
