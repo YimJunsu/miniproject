@@ -23,7 +23,9 @@ create table product(
     product_board varchar(100),
     role enum('판매중', '판매완료') not null,
     category_no_fk int,
-    foreign key(category_no_fk) references category(category_no)
+    user_no_fk int,
+    foreign key(category_no_fk) references category(category_no),
+    foreign key(user_no_fk) references user(user_no)
 );
 
 create table porder(
