@@ -1,6 +1,8 @@
 package model.Dto;
 
 public class ProductDto {
+    private int user_no_fk;
+
     private int cate_no;
     private String cate_name;
 
@@ -8,6 +10,8 @@ public class ProductDto {
     private String pro_name;
     private int price;
     private String state;
+    private String time;
+    private String board;
 
     //카테고리 출력 생성자
     public ProductDto(int cate_no, String cate_name) {
@@ -15,26 +19,25 @@ public class ProductDto {
         this.cate_name = cate_name;
     }
 
-    //제품 등록 생성자
-    public ProductDto(int cate_no, String pro_name, int price, String state) {
+    //제품 등록 생성자 //수정 필요
+    public ProductDto(int user_no_fk, int cate_no, String pro_name, int price, String state, String board) {
+        this.user_no_fk = user_no_fk;
         this.cate_no = cate_no;
         this.pro_name = pro_name;
         this.price = price;
         this.state = state;
+        this.board = board;
     }
     //제품 출력 생성자
-
-    public ProductDto(int cate_no, int pro_no, String pro_name, int price, String state) {
+    public ProductDto(int user_no_fk, int cate_no, String pro_name, int price, String state) {
+        this.user_no_fk = user_no_fk;
         this.cate_no = cate_no;
-        this.pro_no = pro_no;
         this.pro_name = pro_name;
         this.price = price;
         this.state = state;
     }
     //제품 수정 생성자
-
-    public ProductDto(String pro_name, int price, String state, int pro_no, int cate_no) {
-        this.pro_name = pro_name;
+    public ProductDto(int price, String state, int pro_no, int cate_no) {
         this.price = price;
         this.state = state;
         this.pro_no = pro_no;
@@ -45,6 +48,7 @@ public class ProductDto {
         this.pro_no = pro_no;
     }
 
+    //게터 세터
     public int getCate_no() {
         return cate_no;
     }

@@ -21,5 +21,10 @@ public class ProductController {
         ArrayList<ProductDto> result = ProductDao.getInstance().categories();
         return result;
     }
-    //[강사]//
+    //제품 출력 함수
+    public ArrayList<ProductDto> products(){
+        ArrayList<ProductDto> result = ProductDao.getInstance().products();
+        return result;
+    }
+    //제품 등록 함수
 }
