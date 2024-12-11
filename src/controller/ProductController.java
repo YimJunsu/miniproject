@@ -23,7 +23,10 @@ public class ProductController {
     }
     //제품 출력 함수
     public ArrayList<ProductDto> products(){
-        ArrayList<ProductDto> result = ProductDao.getInstance().products();
+
+
+        int user_no_fk = MemberController.getInstance().loginUserNo; // 로그인도니 회원번호.
+        ArrayList<ProductDto> result = ProductDao.getInstance().products( user_no_fk );
         return result;
     }
     //제품 등록 함수

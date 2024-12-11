@@ -27,8 +27,11 @@ public class ProductView {
     //제품 출력 함수
     public void products(){
         ArrayList<ProductDto> result = ProductController.getInstance().products();
-        for (int i = 0; i < result.size(); i++){
-            if (result.get())
+        for (int i = 0 ; i < result.size() ; i++) {
+            System.out.print("[ ");
+            String catename = "";
+            System.out.print(result.get(i).getCate_name());
+            System.out.print("[ ");
         }
     }
 

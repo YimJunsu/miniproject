@@ -34,11 +34,12 @@ public class ProductDao extends DBDao {
         }return list;
     }
     // 제품 출력 함수
-    public ArrayList<ProductDto> products(){
+    public ArrayList<ProductDto> products( int user_no_fk ){
         ArrayList<ProductDto> list = new ArrayList<>();
         try {
-            String sql1 = "select * from product";
+            String sql1 = "select * from product where user_no_fk = ?";
             PreparedStatement ps = conn.prepareStatement(sql1);
+            ps.setInt( 1 , user_no_fk );
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 int userNo = rs.getInt("user_no_fk");
