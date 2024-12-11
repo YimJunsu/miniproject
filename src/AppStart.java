@@ -1,7 +1,9 @@
-import view.ShopView;
+import view.ShopMainView;
 
 public class AppStart {
     public static void main(String[] args) {
-        ShopView.getInstance().mainPage();
+        //[강사]
+        ShopMainView.getInstance().mainPage();
+        //[강사]//
     }
 }
