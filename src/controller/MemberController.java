@@ -44,4 +44,10 @@ public class MemberController {
     }
     //[강사]//
 
+
+    //회원 탈퇴 함수
+
+    public boolean userDelete(){
+        return MemberDao.getInstance().userDelete(loginUserNo);
+    }
 }
