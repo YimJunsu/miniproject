@@ -54,10 +54,11 @@ public class MemberView {
     }
     //회원정보 삭제
     public boolean userDelete(){
-        System.out.println("[회원탈퇴서비스]");
+        System.out.println("[회원탈퇴서비스입니다.]");
         boolean result = MemberController.getInstance().userDelete();
         if(result){
             System.out.println("[회원탈퇴가 되었습니다.]");
+            System.out.println("[이용해주셔서 감사합니다.]");
             return true;
         } else {
             System.out.println("[회원탈퇴가 되지않았습니다.");
