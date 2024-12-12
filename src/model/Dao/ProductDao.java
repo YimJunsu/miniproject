@@ -24,9 +24,10 @@ public class ProductDao extends DBDao {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
+                int cateNo = rs.getInt("category_no");
                 String cateName = rs.getString("category_name");
 
-                ProductDto productDto = new ProductDto( 0 , cateName);
+                ProductDto productDto = new ProductDto(cateNo, cateName);
                 list.add(productDto);
             }
         } catch (SQLException e) {
@@ -37,18 +38,20 @@ public class ProductDao extends DBDao {
     public ArrayList<ProductDto> products( int user_no_fk ){
         ArrayList<ProductDto> list = new ArrayList<>();
         try {
-            String sql1 = "select * from product where user_no_fk = ?";
-            PreparedStatement ps = conn.prepareStatement(sql1);
-            ps.setInt( 1 , user_no_fk );
+            String sql = "select * from product where user_no_fk = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt( 1, user_no_fk );
             ResultSet rs = ps.executeQuery();
+
             while (rs.next()){
                 int userNo = rs.getInt("user_no_fk");
                 int cateNo = rs.getInt("category_no_fk");
                 String prName = rs.getString("product_name");
                 int prPrice = rs.getInt("price");
                 String state = rs.getString("role");
+                String board = rs.getString("product_board");
 
-                ProductDto productDto = new ProductDto(userNo, cateNo, prName, prPrice, state);
+                ProductDto productDto = new ProductDto(userNo, cateNo, prName, prPrice, state, board);
                 list.add(productDto);
             }
         }catch (SQLException e){

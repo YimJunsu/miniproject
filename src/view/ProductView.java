@@ -26,12 +26,27 @@ public class ProductView {
     }
     //제품 출력 함수
     public void products(){
-        ArrayList<ProductDto> result = ProductController.getInstance().products();
-        for (int i = 0 ; i < result.size() ; i++) {
-            System.out.print("[ ");
-            String catename = "";
-            System.out.print(result.get(i).getCate_name());
-            System.out.print("[ ");
+        ArrayList<ProductDto> result_cate = ProductController.getInstance().categoris();
+        ArrayList<ProductDto> result_pro = ProductController.getInstance().products();
+        for (int i = 0 ; i < result_pro.size() ; i++) {
+            String proName = "";
+            if (result_cate.get(0).getCate_no() == result_pro.get(i).getCate_no()){
+                proName = result_cate.get(0).getCate_name();
+            }else if (result_cate.get(1).getCate_no() == result_pro.get(i).getCate_no()){
+                proName = result_cate.get(1).getCate_name();
+            }else if (result_cate.get(2).getCate_no() == result_pro.get(i).getCate_no()){
+                proName = result_cate.get(2).getCate_name();
+            }else if (result_cate.get(3).getCate_no() == result_pro.get(i).getCate_no()){
+                proName = result_cate.get(3).getCate_name();
+            }
+            System.out.println("등록된 제품" + i+1);
+            System.out.print("[ 카테고리명 : "); System.out.print(proName); System.out.println(" ]");
+            System.out.print("[ 제품명 : "); System.out.print(result_pro.get(i).getPro_name()); System.out.println(" ]");
+            System.out.print("[ 가격 : "); System.out.print(result_pro.get(i).getPrice()); System.out.println(" ]");
+            System.out.print("[ 상태 : "); System.out.print(result_pro.get(i).getState()); System.out.println(" ]");
+            System.out.print("[ 상세내용 : "); System.out.print(result_pro.get(i).getBoard()); System.out.println(" ]");
+            System.out.println("------------------------------------------------------");
+            System.out.println("");
         }
     }
 

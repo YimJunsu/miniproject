@@ -34,7 +34,7 @@ public class ShopMainView {
                             switch (choose){
                                 case 1:
                                     while (true){
-                                        System.out.println("[등록된 제품]"); ProductView.getInstance().products();
+                                        ProductView.getInstance().products();
                                         System.out.print("[1. 제품 수정] [2. 제품 삭제] [3. 뒤로가기] : "); choose = scan.nextInt();
                                         switch (choose){
                                             case 1: continue;
