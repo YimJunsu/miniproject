@@ -27,4 +27,8 @@ public class ProductController {
         return result;
     }
     //제품 등록 함수
+    public boolean productAdd(ProductDto productDtoAdd){
+    boolean result=ProductDao.getInstance().productAdd(productDtoAdd);
+     return result;
+    }
 }

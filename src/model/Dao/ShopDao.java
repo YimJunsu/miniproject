@@ -100,8 +100,7 @@ public class ShopDao {
     }
 
     //상품추가 함수
-    public boolean productAdd(ShopDto productAddDto){
-String sql="insert into product(prname,price,state)values(?,?,?)";
+    public boolean productAdd(ShopDto productAddDto) {
+        String sql = "insert into product(prname,price,state)values(?,?,?)";
     }
-
 }

@@ -20,8 +20,7 @@ public class ProductDto {
     }
 
     //제품 등록 생성자 //수정 필요
-    public ProductDto(int user_no_fk, int cate_no, String pro_name, int price, String state, String board) {
-        this.user_no_fk = user_no_fk;
+    public ProductDto( int cate_no, String pro_name, int price, String state, String board) {
         this.cate_no = cate_no;
         this.pro_name = pro_name;
         this.price = price;
@@ -29,7 +28,7 @@ public class ProductDto {
         this.board = board;
     }
     //제품 출력 생성자
-    public ProductDto(int user_no_fk, int cate_no, String pro_name, int price, String state) {
+    public ProductDto( int user_no_fk,int cate_no, String pro_name, int price, String state) {
         this.user_no_fk = user_no_fk;
         this.cate_no = cate_no;
         this.pro_name = pro_name;
@@ -97,4 +96,19 @@ public class ProductDto {
         this.state = state;
     }
 
+    public String getBoard() {
+        return board;
+    }
+
+    public void setBoard(String board) {
+        this.board = board;
+    }
+
+    public int getUser_no_fk() {
+        return user_no_fk;
+    }
+
+    public void setUser_no_fk(int user_no_fk) {
+        this.user_no_fk = user_no_fk;
+    }
 }

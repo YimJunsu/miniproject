@@ -33,5 +33,22 @@ public class ProductView {
     }
 
     //제품 등록 함수
+    public void  productAdd(){
+        System.out.print("카테고리 번호 입력:"); int cate_no=scan.nextInt();
+        System.out.print("제품명 입력:"); String pro_name=scan.next();
+        System.out.print("제품가격 입력:"); int price=scan.nextInt();
+        System.out.print("제품 상태 입력:"); String state=scan.next();
+        System.out.print("제품 설명 입력:"); String board=scan.next();
+        ProductDto productDtoAdd=new ProductDto(cate_no,pro_name,price,state,board);
+        boolean result=ProductController.getInstance().productAdd(productDtoAdd);
+        if (result){
+            System.out.println("제품등록 성공");
+        }else {
+            System.out.println("제품등록 실패");
+        }
+    }
+
+
+    
 
 }
