@@ -18,17 +18,15 @@ public class ProductDto {
         this.cate_no = cate_no;
         this.cate_name = cate_name;
     }
-
-    //제품 등록 생성자 //수정 필요
-//    public ProductDto(int user_no_fk, int cate_no, String pro_name, int price, String state, String board) {
-//        this.user_no_fk = user_no_fk;
-//        this.cate_no = cate_no;
-//        this.pro_name = pro_name;
-//        this.price = price;
-//        this.state = state;
-//        this.board = board;
-//    }
-    //제품 출력 생성자
+    //제품 등록 생성자
+    public ProductDto(int cate_no, String pro_name, int price, String state, String board) {
+        this.cate_no = cate_no;
+        this.pro_name = pro_name;
+        this.price = price;
+        this.state = state;
+        this.board = board;
+    }
+    //제품 등록, 출력 생성자
     public ProductDto(int user_no_fk, int cate_no, String pro_name, int price, String state, String board) {
         this.user_no_fk = user_no_fk;
         this.cate_no = cate_no;

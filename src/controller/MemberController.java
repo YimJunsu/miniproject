@@ -42,6 +42,7 @@ public class MemberController {
     public void shopLogOut(){
         loginUserNo = 0;
     }
-    //[강사]//
+
+
 
 }

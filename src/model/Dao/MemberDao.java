@@ -67,6 +67,4 @@ public class MemberDao extends DBDao {
             return 0; // 로그인 실패시 0 반환 ,
         }
     }
-    //[강사]//
-
 }

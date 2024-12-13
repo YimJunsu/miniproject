@@ -28,4 +28,9 @@ public class ProductController {
         return result;
     }
     //제품 등록 함수
+    public boolean productAdd(String proName, int price, String board, String state, int category_no_fk){
+        int user_no_fk = MemberController.getInstance().loginUserNo;
+        ProductDto productDto = new ProductDto(user_no_fk, category_no_fk, proName, price, board, state);
+        return ProductDao.getInstance().productAdd(productDto);
+    }
 }

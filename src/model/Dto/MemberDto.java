@@ -17,6 +17,7 @@ public class MemberDto {
         this.user_pwd = user_pwd;
     }
 
+
     public int getUser_no() {
         return user_no;
     }

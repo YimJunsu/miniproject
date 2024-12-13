@@ -1,7 +1,6 @@
 package model.Dao;
 
 import model.Dto.ProductDto;
-import view.MemberView;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +19,7 @@ public class ProductDao extends DBDao {
     public ArrayList<ProductDto> categories(){
         ArrayList<ProductDto> list = new ArrayList<>();
         try {
-            String sql = "select * from category";
+            String sql = "select * from category order by category_no";
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
@@ -60,11 +59,23 @@ public class ProductDao extends DBDao {
     }
 
     //제품 등록 함수
-    //멤버 회원가입 참고
-    public boolean proRegister(ProductDto productDto){
-        return true;
+    public boolean productAdd(ProductDto productDto) {
+        try {
+            String sql = "insert into product (product_name, price, product_board, role, category_no_fk, user_no_fk) values (?,?,?,?,?,?)";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, productDto.getPro_name());
+            ps.setInt(2, productDto.getPrice());
+            ps.setString(3, productDto.getBoard());
+            ps.setString(4, productDto.getState());
+            ps.setInt(5, productDto.getCate_no());
+            ps.setInt(6, productDto.getUser_no_fk());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.err.print("[에러 : " + e.getMessage() + " ]");
+            return false;
+        }
     }
-
     //제품 수정 함수
 
 
