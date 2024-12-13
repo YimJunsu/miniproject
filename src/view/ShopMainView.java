@@ -48,21 +48,25 @@ public class ShopMainView {
                                         }
                                     }
                                 case 2:
-                                    System.out.println("[1. 회원탈퇴] , [2. 정보수정]");
+                                    System.out.println("[1. 회원탈퇴] , [2. 정보수정] : ");
                                     int choose2 = scan.nextInt();
                                     switch (choose2) {
                                         case 1:
-                                            System.out.println("[회원탈퇴서비스 입니다.]");
-                                            System.out.print("정말로 탈퇴하시겠습니까? (예/아니오) : ");
-                                            String confirm = scan.next();
-                                            if (confirm.equalsIgnoreCase("예")) {
-                                                System.out.println("회원 탈퇴가 진행됩니다."); MemberView.getInstance().userDelete();
-                                            } else { System.out.println("회원 탈퇴가 취소되었습니다., 이전창으로..");
+                                            System.out.print("[회원탈퇴서비스 입니다.]");
+                                            System.out.print("정말로 탈퇴하시겠습니까? (예(1)/아니오(2)) : ");
+                                            int result = scan.nextInt();
+                                            if (result == 1) {
+                                                System.out.println("회원 탈퇴가 진행됩니다.");
+                                                MemberView.getInstance().userDelete();
+                                            } else if (result == 2) {
+                                                System.out.println("회원 탈퇴가 취소되었습니다., 이전창으로..");
+                                            } else {
+                                                System.out.println(" 잘못된 선택입니다. ");
                                             } break;
                                         case 2:
                                             System.out.println("[회원정보 수정입니다.]");
                                             //정보 수정 넣기
-                                            break;
+                                            continue;
                                     }
                                 case 3:
                                     System.out.println("로그아웃중..");

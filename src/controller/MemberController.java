@@ -48,4 +48,9 @@ public class MemberController {
     public boolean userDelete(){
         return MemberDao.getInstance().userDelete(loginUserNo);
     }
+
+    //회원정보 수정
+    /*public boolean userUpdate(){
+        return MemberDao.getInstance().userUpdate();
+    }*/
 }

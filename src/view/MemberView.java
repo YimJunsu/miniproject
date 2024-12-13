@@ -2,6 +2,7 @@ package view;
 
 import controller.MemberController;
 import controller.ProductController;
+import model.Dto.MemberDto;
 
 import java.util.Scanner;
 
@@ -54,7 +55,7 @@ public class MemberView {
     }
     //회원정보 삭제
     public boolean userDelete(){
-        System.out.println("[회원탈퇴서비스입니다.]");
+        System.out.println("[회원탈퇴 서비스입니다.]");
         boolean result = MemberController.getInstance().userDelete();
         if(result){
             System.out.println("[회원탈퇴가 되었습니다.]");
@@ -65,4 +66,19 @@ public class MemberView {
             return false;
         }
     }
+    /*public boolean userUpdate(){
+        System.out.println("[회원정보수정 서비스입니다.");
+        scan.nextLine();
+        System.out.println("[수정할 비밀번호] : "); String updatepwd = scan.next();
+        System.out.println("[수정할 전화번호] : "); int updatephn = scan.nextInt();
+        MemberDto memberDto = new MemberDto(updatepwd, updatephn);
+        boolean result = MemberController.getInstance().userUpdate();
+        if (result) {
+            System.out.println("[회원정보수정이 완료되었습니다.]");
+            return true;
+        } else {
+            System.out.println("[회원정보수정이 되지 않았습니다.]");
+            return false;
+        }
+    }*/
 }

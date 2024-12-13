@@ -17,6 +17,11 @@ public class MemberDto {
         this.user_pwd = user_pwd;
     }
 
+    public MemberDto(String user_pwd, int phnum) {
+        this.user_pwd = user_pwd;
+        this.phnum = phnum;
+    }
+
 
     public int getUser_no() {
         return user_no;

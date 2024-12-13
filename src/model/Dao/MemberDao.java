@@ -86,4 +86,15 @@ public class MemberDao extends DBDao {
         }
         return false;
     }
+
+   /* public boolean userUpdate(){
+            String sql = "update user set pwd = ?, phone_no = ? where user_no = ?";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                int pwd =
+                ps.setString(1, MemberDto.user_pwd);
+                ps.setInt(2, MemberDto.phnum);
+                ps.setInt(3, MemberDto.user_no);
+
+                return true;
+    }*/
 }
