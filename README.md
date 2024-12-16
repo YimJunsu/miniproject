@@ -32,4 +32,7 @@ ERD 다어그램
 (https://github.com/YimJunsu/kor2024_javaProjectShop/blob/master/ERD%20%EB%8B%A4%EC%96%B4%EA%B7%B8%EB%9E%A8.jpg)
 
 ---
+### - 프로젝트 실행 Youtube URL
+https://www.youtube.com/watch?v=D9WA5_iuNjE
 
+---
