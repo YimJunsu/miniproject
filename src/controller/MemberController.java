@@ -42,8 +42,7 @@ public class MemberController {
     public void shopLogOut(){
         loginUserNo = 0;
     }
-
-
+    //[강사]//
 
     //회원 탈퇴 함수
     public boolean userDelete(){
