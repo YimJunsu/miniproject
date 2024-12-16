@@ -23,14 +23,18 @@ public class ProductController {
     }
     //제품 출력 함수
     public ArrayList<ProductDto> products(){
-        int user_no_fk = MemberController.getInstance().loginUserNo;
-        ArrayList<ProductDto> result = ProductDao.getInstance().products( user_no_fk );
+        ArrayList<ProductDto> result = ProductDao.getInstance().products();
         return result;
     }
     //제품 등록 함수
-    public boolean productAdd(String proName, int price, String board, String state, int category_no_fk){
-        int user_no_fk = MemberController.getInstance().loginUserNo;
-        ProductDto productDto = new ProductDto(user_no_fk, category_no_fk, proName, price, board, state);
-        return ProductDao.getInstance().productAdd(productDto);
+    public boolean productAdd(ProductDto productDtoAdd){
+    boolean result=ProductDao.getInstance().productAdd(productDtoAdd);
+     return result;
+    }
+
+    //제품삭제함수
+    public boolean productDelete(int deleteNum){
+        boolean result=ProductDao.getInstance().productDelete(deleteNum);
+        return result;
     }
 }
