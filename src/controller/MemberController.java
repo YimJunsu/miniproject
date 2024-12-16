@@ -51,6 +51,7 @@ public class MemberController {
 
     //회원정보 수정
     public boolean userUpdate(MemberDto memberDto){
+        memberDto.setUser_no( loginUserNo );
         return MemberDao.getInstance().userUpdate(memberDto);
     }
 }
