@@ -66,13 +66,14 @@ public class MemberView {
             return false;
         }
     }
-    /*public boolean userUpdate(){
-        System.out.println("[회원정보수정 서비스입니다.");
+    public boolean userUpdate(){
         scan.nextLine();
-        System.out.println("[수정할 비밀번호] : "); String updatepwd = scan.next();
-        System.out.println("[수정할 전화번호] : "); int updatephn = scan.nextInt();
+        System.out.println("[회원정보수정 서비스입니다.");
+        System.out.print("[수정할 비밀번호] : "); String updatepwd = scan.nextLine();
+        System.out.print("[수정할 전화번호] : "); int updatephn = scan.nextInt();
+
         MemberDto memberDto = new MemberDto(updatepwd, updatephn);
-        boolean result = MemberController.getInstance().userUpdate();
+        boolean result = MemberController.getInstance().userUpdate(memberDto);
         if (result) {
             System.out.println("[회원정보수정이 완료되었습니다.]");
             return true;
@@ -80,5 +81,5 @@ public class MemberView {
             System.out.println("[회원정보수정이 되지 않았습니다.]");
             return false;
         }
-    }*/
+    }
 }

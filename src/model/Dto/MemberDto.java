@@ -23,7 +23,7 @@ public class MemberDto {
     }
 
 
-    public int getUser_no() {
+    public static int getUser_no() {
         return user_no;
     }
 

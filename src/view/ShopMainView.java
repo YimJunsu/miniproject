@@ -1,6 +1,7 @@
 package view;
 
 import controller.MemberController;
+import model.Dto.MemberDto;
 
 import java.util.Scanner;
 
@@ -65,7 +66,7 @@ public class ShopMainView {
                                             } break;
                                         case 2:
                                             System.out.println("[회원정보 수정입니다.]");
-                                            //정보 수정 넣기
+                                            MemberView.getInstance().userUpdate();
                                             continue;
                                     }
                                 case 3:

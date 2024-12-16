@@ -87,14 +87,20 @@ public class MemberDao extends DBDao {
         return false;
     }
 
-   /* public boolean userUpdate(){
-            String sql = "update user set pwd = ?, phone_no = ? where user_no = ?";
+    public boolean userUpdate(MemberDto memberDto){
+            try {
+                String sql = "update user set pwd = ?, phone_no = ? where user_no = ?";
                 PreparedStatement ps = conn.prepareStatement(sql);
-                int pwd =
-                ps.setString(1, MemberDto.user_pwd);
-                ps.setInt(2, MemberDto.phnum);
-                ps.setInt(3, MemberDto.user_no);
-
-                return true;
-    }*/
+                ps.setString(1, memberDto.getUser_pwd());
+                ps.setInt(2, memberDto.getPhnum());
+                ps.setInt(3, memberDto.getUser_no());
+                int result = ps.executeUpdate();
+                if (result == 1) {
+                    return true;
+                }
+            }catch (SQLException e){
+                e.getMessage();
+                System.err.println("[회원정보 수정 오류 발생]");
+            } return false;
+    }
 }

@@ -50,7 +50,7 @@ public class MemberController {
     }
 
     //회원정보 수정
-    /*public boolean userUpdate(){
-        return MemberDao.getInstance().userUpdate();
-    }*/
+    public boolean userUpdate(MemberDto memberDto){
+        return MemberDao.getInstance().userUpdate(memberDto);
+    }
 }
