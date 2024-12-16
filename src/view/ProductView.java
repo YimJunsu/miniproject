@@ -48,6 +48,25 @@ public class ProductView {
         }
     }
 
+    //제품 삭제함수
+    public void productDelete(){
+        System.out.print("삭제할 제품번호 입력:");
+        int deleteNum=scan.nextInt();
+        boolean result=ProductController.getInstance().productDelete(deleteNum);
+        if (result){
+            System.out.println("제품삭제 성공");
+        }else {
+            System.out.println("제품삭제 실패");
+        }
+
+    }
+
+
+
+
+
+
+
 
     
 

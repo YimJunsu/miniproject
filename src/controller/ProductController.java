@@ -31,4 +31,10 @@ public class ProductController {
     boolean result=ProductDao.getInstance().productAdd(productDtoAdd);
      return result;
     }
+
+    //제품삭제함수
+    public boolean productDelete(int deleteNum){
+        boolean result=ProductDao.getInstance().productDelete(deleteNum);
+        return result;
+    }
 }
