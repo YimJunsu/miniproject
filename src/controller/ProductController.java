@@ -1,8 +1,6 @@
 package controller;
 
-import model.Dao.MemberDao;
 import model.Dao.ProductDao;
-import model.Dto.MemberDto;
 import model.Dto.ProductDto;
 
 import java.util.ArrayList;
@@ -33,9 +31,15 @@ public class ProductController {
         ProductDto productDto = new ProductDto(user_no_fk, category_no_fk, proName, price, board, state);
         return ProductDao.getInstance().productAdd(productDto);
     }
-    //제품삭제함수
-    public boolean productDelete(int deleteNum){
-        boolean result=ProductDao.getInstance().productDelete(deleteNum);
+
+
+    //제품 수정함수
+    public boolean productUpdate(ProductDto productDtoUpdate){
+        int user_no_fk = MemberController.getInstance().loginUserNo;
+        boolean result=ProductDao.getInstance().productUpdate(productDtoUpdate);
         return result;
     }
+
+
+
 }

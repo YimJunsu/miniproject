@@ -36,15 +36,22 @@ public class ProductDto {
         this.board = board;
     }
     //제품 수정 생성자
-    public ProductDto(int price, String state, int pro_no, int cate_no) {
+    /*public ProductDto(int price, String state, int pro_no, int cate_no) {
         this.price = price;
         this.state = state;
         this.pro_no = pro_no;
         this.cate_no = cate_no;
-    }
+    }*/
     //제품 삭제 생성자
     public ProductDto(int pro_no) {
         this.pro_no = pro_no;
+    }
+
+    public ProductDto(int pro_no, String pro_name, int price, String state) {
+        this.pro_no = pro_no;
+        this.pro_name = pro_name;
+        this.price = price;
+        this.state = state;
     }
 
     //게터 세터

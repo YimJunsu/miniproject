@@ -92,4 +92,24 @@ public class ProductDao extends DBDao {
         }return false;
     }
 
+    public boolean productUpdate(ProductDao productDtoUpdate){
+        try {
+            String sql="update product set name=?,price=?,state? where pro_num=?";
+            PreparedStatement ps=conn.prepareStatement(sql);
+            ps.setString(1,productDtoUpdate.getname);
+            ps.setInt(2,productDtoUpdate.getPrice());
+            ps.setString(3,productDtoUpdate.getState());
+            ps.setInt(4,productDtoUpdate.getPro_no());
+            int result= ps.executeUpdate();
+            if (result==1){
+                return true;
+            }
+        }catch (SQLException e){
+            e.getMessage();
+        }return false;
+
+    }
+
+
+
 }
