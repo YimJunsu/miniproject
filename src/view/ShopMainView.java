@@ -2,6 +2,7 @@ package view;
 
 import controller.MemberController;
 import controller.ProductController;
+import model.Dto.MemberDto;
 
 import java.util.Scanner;
 
@@ -19,7 +20,7 @@ public class ShopMainView {
     public void mainPage() {
         boolean deleted = false;
         System.out.println("Shop 개인간 거래 프로그램");
-        while (true) {
+        while (true) {  // *첫번째 메뉴*
             System.out.print("[1. 회원가입]   [2. 로그인]   [3. 종료하기] : ");
             int choose = scan.nextInt();
             switch (choose){
@@ -27,7 +28,7 @@ public class ShopMainView {
                     // [강사] 메인뷰 에서 회원뷰에 있는 회원가입 함수 호출
                     MemberView.getInstance().shopRegister();
                     continue;
-                case 2:
+                case 2:   // *두번째 메뉴*
                     // [강사] 메인뷰 에서 회원뷰에 있는 로그인 함수  호출
                     if ( MemberView.getInstance().shopLogin()) {
                         while (true) {
@@ -38,7 +39,7 @@ public class ShopMainView {
                             System.out.print("[1. 제품 관리]  [2. 회원 정보 관리]  [3. 로그아웃] : ");
                             choose = scan.nextInt();
                             switch (choose) {
-                                case 1:
+                                case 1: // **제품관리 선택**
                                     while (true) {
                                         System.out.print("[1. 제품 내역]  [2. 제품 등록, 수정, 삭제]  [3. 뒤로가기] : ");
                                         choose = scan.nextInt();
@@ -62,9 +63,29 @@ public class ShopMainView {
                                             case 3:
                                         }break;
                                     }
-                                case 2:
+                                case 2: //** 회원정보 관리 선택**
+                                    while (true) {
+                                        System.out.println("[회원 정보 관리 시스템 입니다.]");
+                                        System.out.println("[1. 회원 정보 수정]   [2. 회원 탈퇴]  [3. 뒤로가기] : ");
+                                        choose = scan.nextInt();
+                                        switch (choose){
+                                            case 1:
+                                                System.out.println("[회원 정보 수정 서비스입니다.]");
+                                                MemberView.getInstance().userUpdate();
+                                                break;
+                                            case 2:
+                                                System.out.println("[회원 탈퇴 서비스입니다.]");
+                                                MemberView.getInstance().userDelete();
+                                                break;
+                                            case 3:
+                                                break;
+
+                                        } break;
+
+                                    }
+                                    System.out.println("--- ---");
                                     break;
-                                case 3:
+                                case 3: //** 로그아웃 **
                                     System.out.println("로그아웃중..");
                                     //[강사]//
                                     MemberController.getInstance().shopLogOut();
@@ -81,5 +102,4 @@ public class ShopMainView {
             }
         }
     }
-
 }

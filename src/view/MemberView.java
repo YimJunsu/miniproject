@@ -71,7 +71,6 @@ public class MemberView {
         System.out.println("[회원정보수정 서비스입니다.");
         System.out.print("[수정할 비밀번호] : "); String user_pwd = scan.nextLine();
         System.out.print("[수정할 전화번호] : "); int phnum = scan.nextInt();
-
         MemberDto memberDto = new MemberDto(user_pwd, phnum);
         boolean result = MemberController.getInstance().userUpdate(memberDto);
         if (result) {

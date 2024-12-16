@@ -7,8 +7,11 @@ public class MemberController {
     //[강사]//
     //싱글톤
     private static final MemberController memberController = new MemberController();
-    private MemberController(){}
-    public static MemberController getInstance(){
+
+    private MemberController() {
+    }
+
+    public static MemberController getInstance() {
         return memberController;
     }
 
@@ -28,30 +31,31 @@ public class MemberController {
     }
 
     //로그인 등록 제어 함수
-    public boolean shopLogin(String id, String pwd){
+    public boolean shopLogin(String id, String pwd) {
         MemberDto shopDto = new MemberDto(id, pwd);
-        int result =  MemberDao.getInstance().login(shopDto);
-        if( result > 0 ){
+        int result = MemberDao.getInstance().login(shopDto);
+        if (result > 0) {
             loginUserNo = result;
             return true;
-        }else{
+        } else {
             return false;
         }
     }
+
     //로그인 등록 제어 함수
-    public void shopLogOut(){
+    public void shopLogOut() {
         loginUserNo = 0;
     }
     //[강사]//
 
     //회원 탈퇴 함수
-    public boolean userDelete(){
+    public boolean userDelete() {
         return MemberDao.getInstance().userDelete(loginUserNo);
     }
 
     //회원정보 수정
-    public boolean userUpdate(MemberDto memberDto){
-        memberDto.setUser_no( loginUserNo );
+    public boolean userUpdate(MemberDto memberDto) {
+        memberDto.setUser_no(loginUserNo);
         return MemberDao.getInstance().userUpdate(memberDto);
     }
 }
