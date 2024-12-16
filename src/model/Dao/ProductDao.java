@@ -81,5 +81,18 @@ public class ProductDao extends DBDao {
 
 
     //제품 삭제 함수
+    public boolean productDelete(int deleteNum){
+        try {
+            String sql="delete from product where pro_no=?";
+            PreparedStatement ps=conn.prepareStatement(sql);
+            ps.setInt(1,deleteNum);
+            int result=ps.executeUpdate();
+            if(result==1){
+                return true;
+            }
+        }catch (SQLException e){
+            e.getMessage();
+        }return false;
+    }
 
 }
