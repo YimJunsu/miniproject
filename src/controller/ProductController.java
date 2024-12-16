@@ -33,4 +33,9 @@ public class ProductController {
         ProductDto productDto = new ProductDto(user_no_fk, category_no_fk, proName, price, board, state);
         return ProductDao.getInstance().productAdd(productDto);
     }
+    //제품삭제함수
+    public boolean productDelete(int deleteNum){
+        boolean result=ProductDao.getInstance().productDelete(deleteNum);
+        return result;
+    }
 }
