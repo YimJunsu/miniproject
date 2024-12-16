@@ -42,6 +42,13 @@ public class ProductDto {
         this.pro_no = pro_no;
         this.cate_no = cate_no;
     }
+    //업데이트
+    public ProductDto(int pro_no, String pro_name, int price, String state) {
+        this.pro_no = pro_no;
+        this.pro_name = pro_name;
+        this.price = price;
+        this.state = state;
+    }
     //제품 삭제 생성자
     public ProductDto(int pro_no) {
         this.pro_no = pro_no;

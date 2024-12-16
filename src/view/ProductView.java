@@ -85,4 +85,34 @@ public class ProductView {
             System.out.println("제품등록 실패");
         }
     }
+
+    //제품 삭제함수
+    public void productDelete() {
+        System.out.print("삭제할 제품번호 입력:");
+        int deleteNum = scan.nextInt();
+        boolean result = ProductController.getInstance().productDelete(deleteNum);
+        if (result) {
+            System.out.println("제품삭제 성공");
+        } else {
+            System.out.println("제품삭제 실패");
+        }
+    }
+
+    //제품 수정함수
+    public void productUpdate(){
+        System.out.print("수정 제품번호 입력:"); int pro_no=scan.nextInt();
+        System.out.print("수정 제품명 입력:"); String pro_name=scan.next();
+        System.out.print("수정 제품가격 입력:");int price=scan.nextInt();
+        System.out.print("수정 제품상태 입력"); String state=scan.next();
+        ProductDto productDtoUpdate=new ProductDto(pro_no,pro_name,price,state);
+        boolean result=ProductController.getInstance().productUpdate(productDtoUpdate);
+        if (result) {
+            System.out.println("제품수정 성공");
+
+        } else {
+            System.out.println("제품수정 실패");
+
+        }
+
+    }
 }
