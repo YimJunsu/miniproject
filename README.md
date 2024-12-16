@@ -28,5 +28,8 @@
 
 ---
 ### - 프로젝트 ERD 다어그램 캡처사진
+ERD 다어그램
+https://github.com/YimJunsu/kor2024_javaProjectShop/blob/master/README.md
+
 ---
 
