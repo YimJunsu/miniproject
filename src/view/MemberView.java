@@ -2,6 +2,7 @@ package view;
 
 import controller.MemberController;
 import controller.ProductController;
+import model.Dto.MemberDto;
 
 import java.util.Scanner;
 
@@ -23,7 +24,7 @@ public class MemberView {
         String id = scan.next();
         System.out.print("[비밀번호(숫자)] : ");
         String pwd = scan.next();
-        System.out.print("[휴대폰 번호(-없이작성)] : ");
+        System.out.print("[휴대폰 번호(-없이)] : ");
         int phnum = scan.nextInt();
         //[강사]//
         int result = MemberController.getInstance().shopRegister(id, pwd, phnum);
@@ -49,6 +50,35 @@ public class MemberView {
             return true;
         } else {
             System.out.println("[로그인 실패하였습니다.]");
+            return false;
+        }
+    }
+    //회원정보 삭제
+    public boolean userDelete(){
+        System.out.println("[회원탈퇴 서비스입니다.]");
+        boolean result = MemberController.getInstance().userDelete();
+        if(result){
+            System.out.println("[회원탈퇴가 되었습니다.]");
+            System.out.println("[이용해주셔서 감사합니다.]");
+            return true;
+        } else {
+            System.out.println("[회원탈퇴가 되지않았습니다.");
+            return false;
+        }
+    }
+    public boolean userUpdate(){
+        scan.nextLine();
+        System.out.println("[회원정보수정 서비스입니다.");
+        System.out.print("[수정할 비밀번호] : "); String user_pwd = scan.nextLine();
+        System.out.print("[수정할 전화번호] : "); int phnum = scan.nextInt();
+
+        MemberDto memberDto = new MemberDto(user_pwd, phnum);
+        boolean result = MemberController.getInstance().userUpdate(memberDto);
+        if (result) {
+            System.out.println("[회원정보수정이 완료되었습니다.]");
+            return true;
+        } else {
+            System.out.println("[회원정보수정이 되지 않았습니다.]");
             return false;
         }
     }

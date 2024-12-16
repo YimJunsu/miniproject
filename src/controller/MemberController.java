@@ -42,7 +42,16 @@ public class MemberController {
     public void shopLogOut(){
         loginUserNo = 0;
     }
+    //[강사]//
 
+    //회원 탈퇴 함수
+    public boolean userDelete(){
+        return MemberDao.getInstance().userDelete(loginUserNo);
+    }
 
-
+    //회원정보 수정
+    public boolean userUpdate(MemberDto memberDto){
+        memberDto.setUser_no( loginUserNo );
+        return MemberDao.getInstance().userUpdate(memberDto);
+    }
 }
