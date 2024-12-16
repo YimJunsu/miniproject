@@ -36,34 +36,24 @@ public class ProductView {
         ArrayList<ProductDto> result_pro = ProductController.getInstance().products();
         System.out.println("----------------------------------------------------------------");
         for (int i = 0; i < result_pro.size(); i++) {
-            if (result_pro.get(0) != null) {
+            if (result_pro.get(0)!=null){
                 String proName = "";
-                if (result_cate.get(0).getCate_no() == result_pro.get(i).getCate_no()) {
+                if (result_cate.get(0).getCate_no() == result_pro.get(i).getCate_no()){
                     proName = result_cate.get(0).getCate_name();
-                } else if (result_cate.get(1).getCate_no() == result_pro.get(i).getCate_no()) {
+                }else if (result_cate.get(1).getCate_no() == result_pro.get(i).getCate_no()){
                     proName = result_cate.get(1).getCate_name();
-                } else if (result_cate.get(2).getCate_no() == result_pro.get(i).getCate_no()) {
+                }else if (result_cate.get(2).getCate_no() == result_pro.get(i).getCate_no()){
                     proName = result_cate.get(2).getCate_name();
-                } else if (result_cate.get(3).getCate_no() == result_pro.get(i).getCate_no()) {
+                }else if (result_cate.get(3).getCate_no() == result_pro.get(i).getCate_no()){
                     proName = result_cate.get(3).getCate_name();
                 }
-                int j = i + 1;
+                int j = i+1;
                 System.out.println("[ 등록된 제품" + j + " ]");
-                System.out.print("[ 카테고리명 : ");
-                System.out.print(proName);
-                System.out.println(" ]");
-                System.out.print("[ 제품명 : ");
-                System.out.print(result_pro.get(i).getPro_name());
-                System.out.println(" ]");
-                System.out.print("[ 가격 : ");
-                System.out.print(result_pro.get(i).getPrice());
-                System.out.println(" ]");
-                System.out.print("[ 상태 : ");
-                System.out.print(result_pro.get(i).getState());
-                System.out.println(" ]");
-                System.out.print("[ 상세내용 : ");
-                System.out.print(result_pro.get(i).getBoard());
-                System.out.println(" ]");
+                System.out.print("[ 카테고리명 : "); System.out.print(proName); System.out.println(" ]");
+                System.out.print("[ 제품명 : "); System.out.print(result_pro.get(i).getPro_name()); System.out.println(" ]");
+                System.out.print("[ 가격 : "); System.out.print(result_pro.get(i).getPrice()); System.out.println(" ]");
+                System.out.print("[ 상태 : "); System.out.print(result_pro.get(i).getState()); System.out.println(" ]");
+                System.out.print("[ 상세내용 : "); System.out.print(result_pro.get(i).getBoard()); System.out.println(" ]");
                 System.out.println("----------------------------------------------------------------");
             } else {
                 System.out.println("등록된 제품이 없습니다.");
@@ -74,31 +64,26 @@ public class ProductView {
     }
 
     //제품 등록 함수
-    public void productAdd() {
+    public void  productAdd(){
         categoris();
-        System.out.print("[카테고리 선택(번호)] : ");
-        int cate_no = scan.nextInt();
+        System.out.print("[카테고리 선택(번호)] : "); int cate_no = scan.nextInt();
         scan.nextLine();
-        System.out.print("[제품명 입력] : ");
-        String pro_name = scan.nextLine();
-        System.out.print("[제품가격 입력] : ");
-        int price = scan.nextInt();
-        System.out.print("[1. 판매중]  [2. 판매완료]  : ");
-        int state = scan.nextInt();
+        System.out.print("[제품명 입력] : "); String pro_name = scan.nextLine();
+        System.out.print("[제품가격 입력] : "); int price = scan.nextInt();
+        System.out.print("[1. 판매중]  [2. 판매완료]  : "); int state = scan.nextInt();
         String role = "";
-        if (state == 1) {
+        if (state == 1){
             role = "판매중";
         } else if (state == 2) {
             role = "판매완료";
         }
         scan.nextLine();
-        System.out.print("[제품 설명 입력(200글자)] : ");
-        String board = scan.nextLine();
+        System.out.print("[제품 설명 입력(200글자)] : "); String board=scan.nextLine();
         //String proName, int price, String board, String state, int category_no_fk
         boolean result = ProductController.getInstance().productAdd(pro_name, price, role, board, cate_no);
-        if (result) {
+        if (result){
             System.out.println("제품등록 성공");
-        } else {
+        }else {
             System.out.println("제품등록 실패");
         }
     }
@@ -113,5 +98,23 @@ public class ProductView {
         } else {
             System.out.println("제품삭제 실패");
         }
+    }
+
+    //제품 수정함수
+    public void productUpdate(){
+        System.out.print("수정 제품번호 입력:"); int pro_no=scan.nextInt();
+        System.out.print("수정 제품명 입력:"); String pro_name=scan.next();
+        System.out.print("수정 제품가격 입력:");int price=scan.nextInt();
+        System.out.print("수정 제품상태 입력"); String state=scan.next();
+        ProductDto productDtoUpdate=new ProductDto(pro_no,pro_name,price,state);
+        boolean result=ProductController.getInstance().productUpdate(productDtoUpdate);
+        if (result) {
+            System.out.println("제품수정 성공");
+
+        } else {
+            System.out.println("제품수정 실패");
+
+        }
+
     }
 }
