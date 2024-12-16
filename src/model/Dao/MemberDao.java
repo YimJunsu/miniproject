@@ -9,10 +9,7 @@ import java.sql.SQLException;
 public class MemberDao extends DBDao {
     // [강사] MemberView 싱글톤
     private static final MemberDao memberDao = new MemberDao();
-
-    private MemberDao() {
-    }
-
+    private MemberDao() { }
     public static MemberDao getInstance() {
         return memberDao;
     }
@@ -27,15 +24,15 @@ public class MemberDao extends DBDao {
                 ps.setInt(2, password);
                 ps.setInt(3, memberDto.getPhnum());
                 ps.executeUpdate();
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException e){
                 System.err.println("Error : " + e.getMessage());
                 return 4; //비밀번호 타입 오류
             }
             return 6;
         } catch (SQLException e) {
             String errorMessage = e.getMessage();
-            if (e.getSQLState().equals("23000") && e.getErrorCode() == 1062) {
-                if (errorMessage.contains("id")) {
+            if (e.getSQLState().equals("23000") && e.getErrorCode() == 1062){
+                if (errorMessage.contains("id")){
                     System.err.println("Error : " + errorMessage);
                     return 1; //아이디 중복
                 } else if (errorMessage.contains("phone_no")) {

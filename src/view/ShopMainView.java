@@ -1,7 +1,7 @@
 package view;
 
 import controller.MemberController;
-import model.Dto.MemberDto;
+import controller.ProductController;
 
 import java.util.Scanner;
 
@@ -17,6 +17,7 @@ public class ShopMainView {
     Scanner scan = new Scanner(System.in);
 
     public void mainPage() {
+        boolean deleted = false;
         System.out.println("Shop 개인간 거래 프로그램");
         while (true) {
             System.out.print("[1. 회원가입]   [2. 로그인]   [3. 종료하기] : ");
@@ -30,45 +31,39 @@ public class ShopMainView {
                     // [강사] 메인뷰 에서 회원뷰에 있는 로그인 함수  호출
                     if ( MemberView.getInstance().shopLogin()) {
                         while (true) {
-                            System.out.print("[1.제품 관련]  [2.회원 관련]  [3.로그아웃] : ");
+                            if (deleted){
+                                deleted = false;
+                                break;
+                            }
+                            System.out.print("[1. 제품 관리]  [2. 회원 정보 관리]  [3. 로그아웃] : ");
                             choose = scan.nextInt();
                             switch (choose) {
                                 case 1:
                                     while (true) {
-                                        System.out.print("[1.제품보기]  [2.제품등록] : ");
+                                        System.out.print("[1. 제품 내역]  [2. 제품 등록, 수정, 삭제]  [3. 뒤로가기] : ");
                                         choose = scan.nextInt();
                                         switch (choose) {
                                             case 1:
-                                                System.out.println("제품목록");
-                                                // [강사] 메인뷰 에서 제품뷰에 있는 카테고리 출력 함수  호출
-                                                ProductView.getInstance().categoris();
-                                                continue; //현재 문제 : 카테고리가 순서대로 출력이 안됨
-                                            case 2:
-                                                System.out.println("제품 등록중..");
+                                                System.out.println("[             제품목록             ");
+                                                ProductView.getInstance().products();
                                                 continue;
-                                        }
+                                            case 2:
+                                                System.out.print("[1. 제품 등록]  [2. 제품 수정]  [3. 삭제]  [4. 뒤로가기] : "); choose = scan.nextInt();
+                                                switch (choose){
+                                                    case 1:
+                                                        ProductView.getInstance().productAdd();
+                                                        break;
+                                                    case 2:
+                                                        System.out.println("수정 구현 안됨");break;
+                                                    case 3:
+                                                        System.out.println("등록 구현 안됨");
+                                                    default:
+                                                }
+                                            case 3:
+                                        }break;
                                     }
                                 case 2:
-                                    System.out.println("[1. 회원탈퇴] , [2. 정보수정] : ");
-                                    int choose2 = scan.nextInt();
-                                    switch (choose2) {
-                                        case 1:
-                                            System.out.print("[회원탈퇴서비스 입니다.]");
-                                            System.out.print("정말로 탈퇴하시겠습니까? (예(1)/아니오(2)) : ");
-                                            int result = scan.nextInt();
-                                            if (result == 1) {
-                                                System.out.println("회원 탈퇴가 진행됩니다.");
-                                                MemberView.getInstance().userDelete();
-                                            } else if (result == 2) {
-                                                System.out.println("회원 탈퇴가 취소되었습니다., 이전창으로..");
-                                            } else {
-                                                System.out.println(" 잘못된 선택입니다. ");
-                                            } break;
-                                        case 2:
-                                            System.out.println("[회원정보 수정입니다.]");
-                                            MemberView.getInstance().userUpdate();
-                                            continue;
-                                    }
+                                    break;
                                 case 3:
                                     System.out.println("로그아웃중..");
                                     //[강사]//
@@ -86,4 +81,5 @@ public class ShopMainView {
             }
         }
     }
+
 }
