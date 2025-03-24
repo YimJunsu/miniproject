@@ -29,7 +29,8 @@
 ---
 ### - 프로젝트 ERD 다어그램 캡처사진
 ERD 다어그램
-(https://github.com/YimJunsu/kor2024_javaProjectShop/blob/master/ERD%20%EB%8B%A4%EC%96%B4%EA%B7%B8%EB%9E%A8.jpg)
+![image](https://github.com/user-attachments/assets/68319bad-4b54-43cb-aa68-3696eb88b6a7)
+
 
 ---
 ### - 프로젝트 실행 Youtube URL
