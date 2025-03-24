@@ -5,8 +5,8 @@
 
 ---
 ### - 프로젝트 소개
-자바와 mysql을 이용하여 콘솔 중고거래프로그램 만들기
-
+- 자바와 MySQL(데이터베이스) 이용하여 JDBC 콘솔 중고거래프로그램 만들기.
+- MVC 패턴을 이용, CRUD 기능 적용
 ---
 ### - 프로젝트 개발기간
 - 2024.11.29(금) ~ 2024.12.16(월) 
@@ -27,9 +27,12 @@
 - 설희진: 제품(등록,수정,삭제)코드 구현
 
 ---
-### - 프로젝트 ERD 다어그램 캡처사진
-ERD 다어그램
-(https://github.com/YimJunsu/kor2024_javaProjectShop/blob/master/ERD%20%EB%8B%A4%EC%96%B4%EA%B7%B8%EB%9E%A8.jpg)
+### - 프로젝트 ERD 다이어그램 캡처사진
+![image](https://github.com/user-attachments/assets/68319bad-4b54-43cb-aa68-3696eb88b6a7)
+
 
 ---
+### - 프로젝트 실행 Youtube URL
+https://www.youtube.com/watch?v=D9WA5_iuNjE
 
+---
