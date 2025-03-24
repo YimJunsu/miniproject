@@ -4,8 +4,6 @@ import model.Dao.MemberDao;
 import model.Dto.MemberDto;
 
 public class MemberController {
-    //[강사]//
-    //싱글톤
     private static final MemberController memberController = new MemberController();
 
     private MemberController() {
@@ -46,7 +44,6 @@ public class MemberController {
     public void shopLogOut() {
         loginUserNo = 0;
     }
-    //[강사]//
 
     //회원 탈퇴 함수
     public boolean userDelete() {

@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ProductDao extends DBDao {
-    // [강사] MemberView 싱글톤
     private static final ProductDao productDao = new ProductDao();
     private ProductDao() { }
     public static ProductDao getInstance() {

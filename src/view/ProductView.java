@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ProductView {
-
-    // [강사] MemberView 싱글톤
     private static final ProductView productView = new ProductView();
 
     private ProductView() {
@@ -18,8 +16,6 @@ public class ProductView {
     public static ProductView getInstance() {
         return productView;
     }
-
-    // [강사] 입력 객체
     Scanner scan = new Scanner(System.in);
 
     //void 카테고리 함수

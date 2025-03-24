@@ -8,7 +8,6 @@ import model.Dto.ProductDto;
 import java.util.ArrayList;
 
 public class ProductController {
-    //[강사]//
     //싱글톤
     private static final ProductController productController = new ProductController();
     private ProductController(){}

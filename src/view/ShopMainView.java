@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class ShopMainView {
 
-    // [강사] ShopMainView 싱글톤
+    // ShopMainView 싱글톤
     private static final ShopMainView mainView = new ShopMainView();
 
     private ShopMainView() {
@@ -19,7 +19,7 @@ public class ShopMainView {
         return mainView;
     }
 
-    // [강사] 입력 객체
+    // 입력 객체
     Scanner scan = new Scanner(System.in);
 
     public void mainPage() {
@@ -33,11 +33,11 @@ public class ShopMainView {
                 int choose = scan.nextInt();
                 switch (choose) {
                     case 1:
-                        // [강사] 메인뷰 에서 회원뷰에 있는 회원가입 함수 호출
+                        // 메인뷰 에서 회원뷰에 있는 회원가입 함수 호출
                         MemberView.getInstance().shopRegister();
                         continue;
                     case 2:   // *두번째 메뉴*
-                        // [강사] 메인뷰 에서 회원뷰에 있는 로그인 함수  호출
+                        // 메인뷰 에서 회원뷰에 있는 로그인 함수  호출
                         if (MemberView.getInstance().shopLogin()) {
                             while (true) {
                                 if (deleted) {
@@ -85,11 +85,11 @@ public class ShopMainView {
                                                 case 1:
                                                     System.out.println("[회원 정보 수정 서비스입니다.]");
                                                     MemberView.getInstance().userUpdate();
-                                                    break;
+                                                    continue;
                                                 case 2:
                                                     System.out.println("[회원 탈퇴 서비스입니다.]");
                                                     MemberView.getInstance().userDelete();
-                                                    break;
+                                                    continue;
                                                 case 3:
                                                     break;
 
@@ -101,7 +101,6 @@ public class ShopMainView {
                                         break;
                                     case 3: //** 로그아웃 **
                                         System.out.println("로그아웃중..");
-                                        //[강사]//
                                         MemberController.getInstance().shopLogOut();
                                 }
                                 if (choose == 3) {

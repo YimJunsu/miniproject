@@ -7,14 +7,11 @@ import model.Dto.MemberDto;
 import java.util.Scanner;
 
 public class MemberView {
-
-    // [강사] MemberView 싱글톤
     private static final MemberView memberView = new MemberView();
     private MemberView() { }
     public static MemberView getInstance() {
         return memberView;
     }
-    // [강사] 입력 객체
     Scanner scan = new Scanner(System.in);
 
 
@@ -43,7 +40,6 @@ public class MemberView {
         String id = scan.next();
         System.out.print("[비밀번호(숫자)] : ");
         String pwd = scan.next();
-        //[강사]//
         boolean result = MemberController.getInstance().shopLogin(id, pwd);
         if (result) {
             System.out.println("[로그인 성공하였습니다.]");

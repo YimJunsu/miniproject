@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBDao {
-    //[강사]//
     protected Connection conn;
     protected DBDao(){
         try {
@@ -19,5 +18,4 @@ public class DBDao {
             e.getMessage(); System.out.println("[ ShopDB Connection fail ]");
         }
     }
-    //[강사]//
 }

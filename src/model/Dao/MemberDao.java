@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MemberDao extends DBDao {
-    // [강사] MemberView 싱글톤
     private static final MemberDao memberDao = new MemberDao();
 
     private MemberDao() {
@@ -70,7 +69,6 @@ public class MemberDao extends DBDao {
             return 0; // 로그인 실패시 0 반환 ,
         }
     }
-    //[강사]//
     //로그인 한 상태에서 탈퇴가 진행되도록, 탈퇴할때는 회원번호만 받게
     public boolean userDelete( int loginUserNo ) {
         try {

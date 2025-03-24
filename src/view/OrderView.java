@@ -1,7 +1,6 @@
 package view;
 
 import controller.OrderController;
-import controller.ProductController;
 import model.Dto.OrderDto;
 
 import java.util.ArrayList;
